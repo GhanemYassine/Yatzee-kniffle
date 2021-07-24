@@ -1,0 +1,9 @@
+<div style="display: flex; flex-direction: row">
+  <div style="margin: 20px" *ngFor="let dieState of diceState">
+    <img
+      [ngStyle]="{ border: dieState.canMove ? '' : 'solid 5px green' }"
+      (click)="selectDice(dieState)"
+      src="assets/img/d{{ dieState.face }}.png"
+    />
+  </div>
+</div>

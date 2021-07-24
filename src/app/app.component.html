@@ -1,0 +1,28 @@
+<div>
+  <mat-grid-list cols="10" rowHeight="100px">
+    <mat-grid-tile [colspan]="9" [rowspan]="1">
+      <app-dice [diceState]="diceState"></app-dice>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1">
+      <button
+        mat-raised-button
+        color="accent"
+        [disabled]="allowedRolls < 1"
+        (click)="fireReroll(false)"
+      >
+        Reroll!
+      </button>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="8" [rowspan]="6">
+      <app-score-table
+        [diceState]="diceState"
+        [rerollDices]="this.fireReroll.bind(this)"
+        style="width: 100%"
+      ></app-score-table>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="8"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="2" [rowspan]="1"> </mat-grid-tile>
+  </mat-grid-list>
+</div>

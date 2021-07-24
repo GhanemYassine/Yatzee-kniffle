@@ -1,0 +1,29 @@
+<table mat-table [dataSource]="scoreRows" style="width: 100%">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Possible Combo</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+  <ng-container matColumnDef="finalScore">
+    <th mat-header-cell *matHeaderCellDef>Final Score</th>
+    <td mat-cell *matCellDef="let element">{{ element.finalScore }}</td>
+  </ng-container>
+  <ng-container matColumnDef="roundPossibleScore">
+    <th mat-header-cell *matHeaderCellDef>Round Possible Score</th>
+    <td mat-cell *matCellDef="let element">{{ element.roundPossibleScore }}</td>
+  </ng-container>
+  <ng-container matColumnDef="selectable">
+    <th mat-header-cell *matHeaderCellDef>Selectable</th>
+    <td mat-cell *matCellDef="let element">
+      <button
+        mat-raised-button
+        color="accent"
+        disabled="{{ !element.selectable }}"
+        (click)="submitScore(element)"
+      >
+        Select
+      </button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
